@@ -1,0 +1,86 @@
+{
+  "defaultGroup": "web",
+  "groups": {
+    "web": "Web development",
+    "native": "C and C++ development"
+  },
+  "tools": [
+    {
+      "name": "Git",
+      "winget": "Git.Git",
+      "choco": "git",
+      "groups": ["web", "native"],
+      "description": "Version control"
+    },
+    {
+      "name": "GitHub CLI",
+      "winget": "GitHub.cli",
+      "choco": "gh",
+      "groups": ["web", "native"],
+      "description": "GitHub command-line tooling"
+    },
+    {
+      "name": ".NET SDK",
+      "winget": "Microsoft.DotNet.SDK.8",
+      "choco": "dotnet-sdk",
+      "groups": ["web"],
+      "description": ".NET 8 SDK for backend and API development"
+    },
+    {
+      "name": "Python",
+      "winget": "Python.Python.3.12",
+      "choco": "python",
+      "groups": ["web"],
+      "description": "Python and pip for tooling and scripting"
+    },
+    {
+      "name": "Node.js LTS",
+      "winget": "OpenJS.NodeJS.LTS",
+      "choco": "nodejs-lts",
+      "groups": ["web"],
+      "description": "JavaScript runtime for web apps"
+    },
+    {
+      "name": "Visual Studio Code",
+      "winget": "Microsoft.VisualStudioCode",
+      "choco": "vscode",
+      "groups": ["web", "native"],
+      "description": "Primary code editor"
+    },
+    {
+      "name": "Docker Desktop",
+      "winget": "Docker.DockerDesktop",
+      "choco": "docker-desktop",
+      "groups": ["web"],
+      "description": "Container platform"
+    },
+    {
+      "name": "Azure CLI",
+      "winget": "Microsoft.AzureCLI",
+      "choco": "azure-cli",
+      "groups": ["web"],
+      "description": "Azure cloud tooling"
+    },
+    {
+      "name": "CMake",
+      "winget": "CMake.CMake",
+      "choco": "cmake",
+      "groups": ["native"],
+      "description": "Cross-platform build system for C/C++"
+    },
+    {
+      "name": "LLVM",
+      "winget": "LLVM.LLVM",
+      "choco": "llvm",
+      "groups": ["native"],
+      "description": "Compiler toolchain for native development"
+    },
+    {
+      "name": "MinGW",
+      "winget": "MSYS2.MSYS2",
+      "choco": "msys2",
+      "groups": ["native"],
+      "description": "GNU toolchain for C and C++"
+    }
+  ]
+}
