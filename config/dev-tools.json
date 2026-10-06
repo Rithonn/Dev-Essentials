@@ -62,6 +62,20 @@
       "description": "Azure cloud tooling"
     },
     {
+      "name": "PostgreSQL",
+      "winget": "PostgreSQL.PostgreSQL.18",
+      "choco": "postgresql",
+      "groups": ["web"],
+      "description": "PostgreSQL relational database server"
+    },
+    {
+      "name": "MySQL Server",
+      "winget": "Oracle.MySQL",
+      "choco": "mysql",
+      "groups": ["web"],
+      "description": "MySQL relational database server"
+    },
+    {
       "name": "CMake",
       "winget": "CMake.CMake",
       "choco": "cmake",
@@ -81,6 +95,12 @@
       "choco": "msys2",
       "groups": ["native"],
       "description": "GNU toolchain for C and C++"
+    },
+    {
+      "name": "WSL 2 with Ubuntu",
+      "installer": "wsl2",
+      "groups": ["native"],
+      "description": "Windows Subsystem for Linux 2 with the Ubuntu distribution"
     }
   ]
 }

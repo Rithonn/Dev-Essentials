@@ -16,6 +16,8 @@ The installer supports multiple setup groups:
 - Visual Studio Code
 - Docker Desktop
 - Azure CLI
+- PostgreSQL
+- MySQL Server
 
 ### Native development (C and C++)
 
@@ -25,6 +27,7 @@ The installer supports multiple setup groups:
 - CMake
 - LLVM
 - MinGW
+- WSL 2 with Ubuntu
 
 ## Package managers
 
@@ -37,13 +40,16 @@ The installer uses:
 ## Quick start
 
 1. Open a Windows terminal in this folder.
-2. Run one of the following:
-   - `scripts\install-dev-tools.bat` for the default web setup
+2. Run `scripts\install-dev-tools.bat` and choose a tool group and upgrade behavior from the prompts.
+   You can also run a group directly:
    - `scripts\install-dev-tools.bat web`
    - `scripts\install-dev-tools.bat native`
    - `scripts\install-dev-tools.bat all`
+   - `scripts\install-dev-tools.bat web -Upgrade` to upgrade installed tools where updates are available
 3. Wait for the installation process to finish.
 4. Restart the terminal if prompted.
+
+The native setup enables WSL 2 and installs Ubuntu. Windows may require a restart before WSL is ready; the first Ubuntu launch will prompt you to create a Linux user account.
 
 ## Customizing the package list
 
@@ -68,8 +74,16 @@ Run it with:
 
 - `powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\installer-tests.ps1`
 
+## Security considerations
+
+- The installer requires Administrator privileges and makes system-level changes. Review the scripts and package list before running them, and only run a copy you trust.
+- Packages are downloaded from the configured `winget` or Chocolatey sources. Package versions are not pinned, so package contents and available versions may change over time, especially when using `-Upgrade`.
+- If `winget` is unavailable, the installer downloads Chocolatey's install script over HTTPS and executes it. This bootstrap script is not pinned to a version or verified against a checksum by this project.
+- The launcher's `-ExecutionPolicy Bypass` and the Chocolatey bootstrap's process-scoped execution policy change apply only to the installer process; they do not permanently change the system or user's PowerShell policy.
+- Do not add credentials, API keys, or other secrets to the repository or package configuration.
+
 ## Notes
 
-- This is safe to run repeatedly.
-- Already-installed packages are skipped automatically.
+- The installer is designed to be rerun; already-installed packages are skipped unless `-Upgrade` is specified.
+- With `-Upgrade`, installed packages are checked and upgraded when the package manager reports an available update; missing packages are installed as usual.
 - The script is tailored for .NET backend, web, cloud, and Python-based development workflows.
